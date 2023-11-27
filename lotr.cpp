@@ -43,19 +43,40 @@ public:
     }
 };
 
+class Gollum : public RingBearer {
+public:
+    Gollum() : RingBearer("Gollum") {}
+
+    void talk() {
+        std::cout << name << ": My precious!\n";
+    }
+
+    void guideRingBearer() {
+        std::cout << name << ": Guiding the way through the treacherous path.\n";
+    }
+};
+
 int main() {
     Sauron sauron;
     OneRing oneRing;
-    RingBearer frodo("Frodo Baggins");
+    Gollum gollum;
 
+    // Sauron reveals his characteristics
     sauron.shapeShifting();
     sauron.malice();
 
+    // One Ring informs Sauron
     oneRing.informSauron();
 
-    frodo.resistCorruption();
+    // Gollum, the Ring Bearer, resists the corruptive influence initially
+    gollum.resistCorruption();
 
+    // Sauron uses the One Ring's corruptive influence on Gollum
     oneRing.useCorruptiveInfluence(sauron);
+
+    // Gollum talks and guides the way
+    gollum.talk();
+    gollum.guideRingBearer();
 
     return 0;
 }
